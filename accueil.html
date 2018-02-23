@@ -1,0 +1,105 @@
+<nav class="light-blue lighten-1" role="navigation">
+    <div class="nav-wrapper">
+        <div class="row">
+            <div class="col s2">
+                <a id="logo" href="#" class="valign-wrapper">
+                    <img src="pictures/logo.png" alt="" class="responsive-img container">
+                </a>
+            </div>
+            <div class="row">
+                <form name="connexion" action="Gestionnaire/gestionConnexion.php" method="post" class="row">
+
+                    <div class="input-field col offset-s4">
+                        <input id="emailConnexion" name="emailConnexion" type="email" class="validate"
+                               placeholder="email">
+
+                    </div>
+
+                    <div class="input-field col s2">
+                        <input id="passwordConnexion" name="passwordConnexion" type="password" class="validate"
+                               placeholder="mot de passe">
+                    </div>
+
+                    <bouton class="waves-effect waves-light btn light ">
+                        <input type="submit" value="Connexion">
+                    </bouton>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<br>
+<div class="section no-pad-bot">
+    <div class="row center">
+        <div class="col s7">
+            <div id="desc" class="container">
+                <h3 class="header light" id="titre">Bienvenue sur mon site ! </h3>
+                <br>
+                <div class="">Nous sommmes fiers de vous présenter le premier site exclusivement destiné à la location
+                    de
+                    wingsuits entre particuliers.
+                    Pour un service de qualité et une attention spéciale sur la sécurité, BlueWings a pour objectif de
+                    vous permettre
+                    de vous faire plaisir sans vous ruiner. Le principe est simple. A partir de votre compte membre,
+                    publiez une annonce sur le site de votre combinaison
+                    de wingsuit, en spécifiant notamment la taille, et le niveau auquel il correspond. Lorsque votre
+                    produit
+                    aura trouvé un interessé, ce dernier n'aura qu'à se déplacer dans le club où vous aurez déposé le
+                    produit
+                    pour l'utiliser le temps d'une session de sauts et le remettre ensuite au club.
+                </div>
+            </div>
+        </div>
+
+        <div class="col s5">
+            <h5 class="light">Inscription</h5>
+            <form name="formInscription" id="myform" action="Gestionnaire/gestionInscription.php" method="post">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="lastname" type="text" class="validate" name="lastname">
+                        <label for="lastname">Nom</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="firstname" type="text" class="validate" name="firstname">
+                        <label for="firstname">Prénom</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate" name="email">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="new_password" type="password" class="validate" name="new_password">
+                        <label for="new_password">Mot de passe</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="confirm_password" type="password" class="validate"
+                               name="confirm_password">
+                        <label for="confirm_password">Confirmer mot de passe</label>
+                    </div>
+                </div>
+                <br>
+                <div class="center-align">
+                    <button class="btn waves-effect waves-light" type="submit">Créer un compte
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br><br><br>
+
+<footer class="page-footer orange">
+    <div class="center-align">
+        Made by <a class="orange-text text-lighten-3" href="#">Créé par Pierre MB en PHP et Materialize css</a>
+    </div>
+</footer>

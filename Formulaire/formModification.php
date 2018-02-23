@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Modification</title>
-    <link rel="stylesheet" type="text/css" href="../index.css">
-    <link rel="stylesheet" type="text/css" href="formInsciption.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+    <title>Modification Article</title>
+    <?php include_once "../stylesheet.html"; ?>
+
 </head>
 <body>
 
@@ -12,6 +14,7 @@
 <?php include_once "../header.html"; ?>
 <?php include_once "formModification.html"; ?>
 <?php include_once "../footer.html"; ?>
+<?php include_once "../javascript.html"; ?>
 
 
 </body>
