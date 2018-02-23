@@ -13,12 +13,7 @@
 </head>
 <body>
 
-<?php
-
-require_once "menu.html";
-require_once "footer.html";
-
-?>
+<?php require_once "menu.html"; ?>
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
