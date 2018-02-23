@@ -1,15 +1,47 @@
-<div class="formulaire">
-    <h5 class="light">Modification article</h5>
+<br><br><br>
+<div class="formulaireModification center">
 
-    <br>
+    <h5 class="header light">Modification article</h5>
+
+    <br><br><br>
 
     <form name="formModification" id="formModification" action="../Gestionnaire/gestionModification.php" method="post">
-        <input placeholder="Modifier lien de l'image" id="image" type="text" class="validate" name="image">
+
+
+        <div class="row container">
+            <div class="col s12">
+                <div class="row">
+
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">image</i>
+                        <input id="image" name="image" type="text" class="validate">
+                        <label for="image">URL de l'image</label>
+                    </div>
+
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">title</i>
+                        <input id="titre" name="titre" type="text" class="validate">
+                        <label for="titre">Titre de l'article</label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">text_fields</i>
+                        <textarea id="corps" class="materialize-textarea validate" name="corps"></textarea>
+                        <label for="corps">Description de l'article</label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <br>
-        <input placeholder="Titre" id="tire" type="text" class="validate" name="titre">
-        <br>
-        <input placeholder="Description" id="corps" type="text" class="validate" name="corps">
-        <br>
-        <input type="submit" value="Modifier article">
+        <div class="center">
+            <bouton class="waves-effect waves-light btn light ">
+                <input type="submit" value="Modifier article">
+                <i class="material-icons right">send</i>
+            </bouton>
+        </div>
     </form>
 </div>
+<br><br><br><br><br><br>
