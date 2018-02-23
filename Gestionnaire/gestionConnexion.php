@@ -16,7 +16,8 @@ if (isset($_POST['emailConnexion']) AND
     require_once "../connexionBDD.php";
     $mysqli = connexionBDD();
 
-    $sql = "SELECT idArticle, image, titre, corps FROM article ORDER BY titre";
+    // Ajouter vérification mot de passe avec grain de sel
+    //$sql = "SELECT idArticle, image, titre, corps FROM article ORDER BY titre";
 
     if ($email == "bob@gmail.com" AND $mdp == "a") {
         $_SESSION["email"] = $email;
@@ -30,14 +31,11 @@ if (isset($_POST['emailConnexion']) AND
 }
 
 
-// Gestion session et deconnexion
+// Gestion session
 if (isset($_SESSION['email']) AND
     !empty($_SESSION['email'])
 ) {
-    unset($_SESSION['email']);
-    session_destroy();
-    header('Location: http://localhost:8888/webMiage/index.php');
-    exit;
+    $email = $_SESSION['email'];
 }
 
 // Redirige sur page d'accueil par défaut
