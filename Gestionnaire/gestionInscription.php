@@ -32,8 +32,7 @@ VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de has
     if (!$result) {
         echo "<p>Erreur...</p>";
     } else {
-        echo "Yeah inscrit !";
-        header('Location: http://localhost:8888/webMiage/');
+        header('Location: http://localhost:8888/webMiage/menu.php');
         exit;
     }
 
@@ -42,6 +41,6 @@ VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de has
 
 } else {
     echo "Mauvais remplissage...";
-    header('Location: http://localhost:8888/webMiage/');
+    header('Location: http://localhost:8888/webMiage/index.php');
     exit;
 }
