@@ -16,16 +16,16 @@ if (isset($_POST['image']) AND
     $corps = $_POST["corps"];
     $id = '\N';
 
-    $sql = "INSERT INTO article (idArticle, image, titre, corps)
+    $sql = "INSERT INTO article (idArticle, imageURL, titre, corps)
 VALUES ('$id', '$image', '$titre', '$corps')";
 
     // Envoie dans bdd
     $result = $mysqli->query($sql);
 
-    if (!$result) {
+    if (! $result) {
         echo "<p>Erreur...</p>";
     } else {
-        header('Location: http://localhost:8888/webMiage/');
+        header('Location: http://localhost:8888/webMiage/menu.php');
         exit;
     }
 

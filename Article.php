@@ -8,12 +8,23 @@
 
 class Article
 {
+    private $imageURL;
+    private $titre;
+    private $corps;
+
+    function __construct($image, $titre, $corps)
+    {
+        $this->imageURL = $image;
+        $this->titre = $titre;
+        $this->corps = $corps;
+    }
+
     /**
      * @return mixed
      */
     public function getImage()
     {
-        return $this->image;
+        return $this->imageURL;
     }
 
     /**
@@ -21,7 +32,7 @@ class Article
      */
     public function setImage($image)
     {
-        $this->image = $image;
+        $this->imageURL = $image;
     }
 
     /**
@@ -53,17 +64,6 @@ class Article
      */
     public function setCorps($corps)
     {
-        $this->corps = $corps;
-    }
-
-    private $image;
-    private $titre;
-    private $corps;
-
-    function __construct($image, $titre, $corps)
-    {
-        $this->image = $image;
-        $this->titre = $titre;
         $this->corps = $corps;
     }
 
