@@ -22,7 +22,7 @@ if (isset($_POST['emailConnexion']) AND
     if ($email == "bob@gmail.com" AND $mdp == "a") {
         $_SESSION["email"] = $email;
 
-        header('Location: http://localhost:8888/webMiage/menu.php');
+        header('Location: http://localhost:8888/webMiage/index.php');
         exit;
     } else {
         header('Location: http://localhost:8888/webMiage/index.php');

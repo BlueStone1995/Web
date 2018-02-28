@@ -25,7 +25,7 @@ VALUES ('$id', '$image', '$titre', '$corps')";
     if (! $result) {
         echo "<p>Erreur...</p>";
     } else {
-        header('Location: http://localhost:8888/webMiage/menu.php');
+        header('Location: http://localhost:8888/webMiage/index.php');
         exit;
     }
 
