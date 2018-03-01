@@ -14,7 +14,7 @@ if (isset($_POST['lastname']) AND
     ($_POST['confirm_password'] == $_POST['new_password'])
 ) {
 
-    require_once "../connexionBDD.php"; // Récupere fonction connexion a bdd
+    require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
     $nom = $_POST["lastname"];

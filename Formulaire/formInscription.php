@@ -11,9 +11,9 @@
 <body>
 
 
-<?php include_once "../header.html"; ?>
+<?php include_once "headerConnexion.html"; ?>
 <?php include_once "formInscription.html"; ?>
-<?php include_once "../footer.html"; ?>
+<?php include_once "footer.html"; ?>
 <?php include_once "../javascript.html"; ?>
 
 

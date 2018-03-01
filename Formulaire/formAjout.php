@@ -11,9 +11,9 @@
 <body>
 
 
-<?php include_once "../header.html"; ?>
+<?php include_once "headerDeconnexion.html"; ?>
 <?php include_once "formAjout.html"; ?>
-<?php include_once "../footer.html"; ?>
+<?php include_once "footer.html"; ?>
 <?php include_once "../javascript.html"; ?>
 
 

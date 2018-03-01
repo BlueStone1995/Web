@@ -13,7 +13,7 @@ if (isset($_POST['emailConnexion']) AND
 
 
     // Connexion a bdd
-    require_once "../connexionBDD.php";
+    require_once "connexionBDD.php";
     $mysqli = connexionBDD();
 
     // Ajouter vérification mot de passe avec grain de sel
@@ -22,7 +22,7 @@ if (isset($_POST['emailConnexion']) AND
     if ($email == "bob@gmail.com" AND $mdp == "a") {
         $_SESSION["email"] = $email;
 
-        header('Location: http://localhost:8888/webMiage/index.php');
+        header('Location: http://localhost:8888/webMiage/indexDeconnexion.php');
         exit;
     } else {
         header('Location: http://localhost:8888/webMiage/index.php');
@@ -30,14 +30,16 @@ if (isset($_POST['emailConnexion']) AND
     }
 }
 
-
 // Gestion session
-if (isset($_SESSION['email']) AND
-    !empty($_SESSION['email'])
+if (isset($_SESSION["email"]) AND
+    !empty($_SESSION["email"])
 ) {
-    $email = $_SESSION['email'];
-}
+    $email = $_SESSION["email"];
 
-// Redirige sur page d'accueil par défaut
-header('Location: http://localhost:8888/webMiage/index.php');
-exit;
+    header('Location: http://localhost:8888/webMiage/indexDeconnexion.php');
+    exit;
+} else {
+
+    header('Location: http://localhost:8888/webMiage/index.php');
+    exit;
+}

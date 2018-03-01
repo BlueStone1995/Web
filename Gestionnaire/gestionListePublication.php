@@ -1,7 +1,7 @@
 <?php
 
 // Affiche mes différentes publications
-require_once "../connexionBDD.php"; // Récupere fonction connexion a bdd
+require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
 $mysqli = connexionBDD();
 
 $sql = "SELECT idArticle, image, titre, corps FROM article ORDER BY titre";

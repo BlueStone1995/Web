@@ -9,7 +9,7 @@ if (isset($_POST['image']) AND
 ) {
 
     // Affiche page avec mes données
-    require_once "../connexionBDD.php"; // Récupere fonction connexion a bdd
+    require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
     $sql = "SELECT idArticle, image, titre, corps FROM article ORDER BY titre";

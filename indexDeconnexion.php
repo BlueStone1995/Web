@@ -17,18 +17,7 @@
 <body>
 
 <?php
-
-// Gestion session
-if (isset($_SESSION["email"]) AND
-    !empty($_SESSION["email"])
-) {
-    $email = $_SESSION["email"];
-    require_once "listePublicationDeconnexion.html";
-    echo "Deconnexion";
-} else {
-    require_once "listePublicationConnexion.html";
-    echo "Connexion";
-}
+require_once "listePublicationDeconnexion.html";
 
 ?>
 

@@ -8,7 +8,7 @@ if (isset($_POST['image']) AND
     !empty($_POST['corps'])
 ) {
 
-    require_once "../connexionBDD.php"; // Récupere fonction connexion a bdd
+    require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
     $image = $_POST["image"];
@@ -25,7 +25,7 @@ VALUES ('$id', '$image', '$titre', '$corps')";
     if (! $result) {
         echo "<p>Erreur...</p>";
     } else {
-        header('Location: http://localhost:8888/webMiage/index.php');
+        header('Location: http://localhost:8888/webMiage/indexDeconnexion.php');
         exit;
     }
 
