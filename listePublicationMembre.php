@@ -1,4 +1,14 @@
-<?php session_start(); ?>
+<?php session_start();
+
+// Connexion BDD
+require_once "Gestionnaire/connexionBDD.php";
+$mysqli = connexionBDD();
+
+$sql = "SELECT * FROM article;";
+$result = $mysqli->query($sql);
+
+
+?>
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper">
         <div class="row">
@@ -9,7 +19,7 @@
             </div>
 
             <div class="row">
-                <h5 class="center-align col s8 l8">Bienvenue <?php $_SESSION["firstname"]; ?> !</h5>
+                <h5 class="center-align col s8 l8">Bienvenue <?php echo $firstname; ?> !</h5>
                 <form name="deconnexion" action="Gestionnaire/gestionDeconnexion.php" method="post">
                     <bouton class="waves-effect waves-light btn light">
                         <input type="submit" value="Déconnexion">
@@ -42,6 +52,29 @@
     </div>
     <br><br>
 
+    <?php
+    if (!$result) {
+        echo "<p> Desolée ... </p>";
+    } else {
+        while ($ligne = $result->fetch_object()) {
+            echo "<div class='card horizontal'>
+        <div class='card-image'>
+            <img class='image' alt='Image' src='$ligne->imageURL'>
+            <span class='card-title'>$ligne->titre</span>
+        </div>
+        <div class='card-stacked'>
+            <div class='card-content'>
+                <p class='corps'>$ligne->corps</p>
+            </div>
+            <div class='card-action center'>
+                <a href='Formulaire/formModification.php'>Modifier l'article</a>
+            </div>
+        </div>
+    </div>
+    <br><br>";
+        }
+    }
+    ?>
     <div class="card horizontal">
         <div class="card-image">
             <img class="image" src="pictures/img_fjords.jpg">

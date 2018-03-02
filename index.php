@@ -28,7 +28,7 @@ if (isset($_SESSION["email"]) AND
 
     require_once "listePublicationMembre.php";
 } else {
-    require_once "listePublication.html";
+    require_once "listePublication.php";
 }
 
 ?>

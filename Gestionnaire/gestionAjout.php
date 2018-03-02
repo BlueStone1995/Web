@@ -22,16 +22,9 @@ VALUES ('$id', '$image', '$titre', '$corps')";
     // Envoie dans bdd
     $result = $mysqli->query($sql);
 
-    require_once "../Entity/Article.php";
-
-    $article = new Article($image, $titre, $corps);
-
     if (!$result) {
         echo "<p>Erreur...</p>";
     } else {
-        $_SESSION["email"] = $email;
-        $_SESSION["lastname"] = $nom;
-        $_SESSION["firstname"] = $prenom;
 
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;

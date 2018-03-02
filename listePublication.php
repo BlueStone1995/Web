@@ -1,3 +1,15 @@
+<?php session_start();
+
+// Connexion BDD
+require_once "Gestionnaire/connexionBDD.php";
+$mysqli = connexionBDD();
+
+$sql = "SELECT * FROM article;";
+$result = $mysqli->query($sql);
+
+
+?>
+
 <nav class="light-blue lighten-1" role="navigation">
     <div class="nav-wrapper">
         <div class="row">
@@ -35,6 +47,30 @@
         </div>
     </div>
     <br><br>
+
+    <?php
+    if (!$result) {
+        echo "<p> Desolée ... </p>";
+    } else {
+        while ($ligne = $result->fetch_object()) {
+            echo "<div class='card horizontal'>
+        <div class='card-image'>
+            <img class='image' alt='Image' src='$ligne->imageURL'>
+            <span class='card-title'>$ligne->titre</span>
+        </div>
+        <div class='card-stacked'>
+            <div class='card-content'>
+                <p class='corps'>$ligne->corps</p>
+            </div>
+            <div class='card-action center'>
+                <a href='Formulaire/formConnexion.php'>Modifier l'article</a>
+            </div>
+        </div>
+    </div>
+    <br><br>";
+        }
+    }
+    ?>
 
     <div class="card horizontal">
         <div class="card-image">
