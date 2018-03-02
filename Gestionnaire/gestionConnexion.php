@@ -1,45 +1,41 @@
 <?php
+session_start();
 
 // Connexion
-if (isset($_POST['emailConnexion']) AND
-    isset($_POST['passwordConnexion']) AND
-    !empty($_POST['emailConnexion']) AND
-    !empty($_POST['passwordConnexion'])
+if (isset($_POST['email']) AND
+    isset($_POST['password']) AND
+    !empty($_POST['email']) AND
+    !empty($_POST['password'])
 ) {
 
     // Recupere login et mot de passe
-    $email = $_POST['emailConnexion'];
-    $mdp = $_POST['passwordConnexion'];
+    $email = $_POST['email'];
+    $pwd = $_POST['password'];
 
 
     // Connexion a bdd
     require_once "connexionBDD.php";
     $mysqli = connexionBDD();
 
-    // Ajouter vérification mot de passe avec grain de sel
-    //$sql = "SELECT idArticle, image, titre, corps FROM article ORDER BY titre";
+    // Récupère données utilisateur
+    $res = mysqli_query($mysqli, "select * from utilisateur where email =  '$email' ");
+    $row = mysqli_fetch_assoc($res);
 
-    if ($email == "bob@gmail.com" AND $mdp == "a") {
+    $lastname = $row['lastname'];
+    $firstname = $row['firstname'];
+
+    if ($row['password'] == $pwd && $row['email'] == $email) {
         $_SESSION["email"] = $email;
+        $_SESSION["lastname"] = $lastname;
+        $_SESSION["firstname"] = $firstname;
+        $_SESSION["password"] = $pwd;
 
-        header('Location: http://localhost:8888/webMiage/indexDeconnexion.php');
-        exit;
-    } else {
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;
+    } else {
+        echo "Error: wrong enters";
     }
-}
-
-// Gestion session
-if (isset($_SESSION["email"]) AND
-    !empty($_SESSION["email"])
-) {
-    $email = $_SESSION["email"];
-
-    header('Location: http://localhost:8888/webMiage/indexDeconnexion.php');
-    exit;
-} else {
-
-    header('Location: http://localhost:8888/webMiage/index.php');
+}else{
+    header('Location: http://localhost:8888/webMiage/Formulaire/formConnexion.php');
     exit;
 }

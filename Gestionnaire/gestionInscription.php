@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Vérifie que champs bien rempli et mot de passe ok
 if (isset($_POST['lastname']) AND
@@ -26,12 +27,19 @@ if (isset($_POST['lastname']) AND
     $sql = "INSERT INTO utilisateur (idUtilisateur, lastname, firstname, email, password)
 VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de hash
 
+    require_once "../Entity/Utilisateur.php";
+    $user = new Utilisateur($prenom, $nom, $email, $mdp);
+
     // Envoie dans bdd
     $result = $mysqli->query($sql);
 
     if (!$result) {
         echo "<p>Erreur...</p>";
     } else {
+        $_SESSION["email"] = $email;
+        $_SESSION["lastname"] = $nom;
+        $_SESSION["firstname"] = $prenom;
+
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;
     }
@@ -41,6 +49,6 @@ VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de has
 
 } else {
     echo "Mauvais remplissage...";
-    header('Location: http://localhost:8888/webMiage/index.php');
+    header('Location: http://localhost:8888/webMiage/Formulaire/formInscription.php');
     exit;
 }

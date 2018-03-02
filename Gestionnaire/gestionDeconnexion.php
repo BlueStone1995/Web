@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Deconnexion
 if (isset($_SESSION['email']) AND

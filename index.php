@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -10,7 +9,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
@@ -18,16 +16,19 @@
 
 <?php
 
+session_start();
+
 // Gestion session
 if (isset($_SESSION["email"]) AND
     !empty($_SESSION["email"])
 ) {
     $email = $_SESSION["email"];
-    require_once "listePublicationDeconnexion.html";
-    echo "Deconnexion";
+    $lastname = $_SESSION["lastname"];
+    $firstname = $_SESSION["firstname"];
+
+    require_once "listePublicationMembre.php";
 } else {
-    require_once "listePublicationConnexion.html";
-    echo "Connexion";
+    require_once "listePublication.html";
 }
 
 ?>

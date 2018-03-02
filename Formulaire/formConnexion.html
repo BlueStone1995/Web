@@ -1,36 +1,38 @@
-<div class="section"></div>
+<br><br>
 <main class="center">
+    <br>
+    <h5 class="light-blue-text">Connectez vous !</h5>
     <br><br>
-    <h5 class="indigo-text">Connectez vous !</h5>
-    <br><br>
-    <div class="z-depth-1 grey lighten-4 row card"
-         style="display: inline-block; padding: 20px 90px 20px 90px; border: 1px solid #EEE;">
+    <div class="container">
+        <div class="z-depth-1 grey lighten-4 row"
+             style="display: inline-block; padding: 20px 90px 20px 90px; border: 1px solid #EEE;">
 
-        <form class="col s12" action="../Gestionnaire/gestionConnexion.php" method="post">
-
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <input type="email" id="emailConnexion" name="emailConnexion" required="required"/>
-                    <label for='emailConnexion' data-error="wrong" data-success="right">Email</label>
+            <form class="col s12" action="../Gestionnaire/gestionConnexion.php" method="post">
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input type="email" id="email" name="email" required="required"/>
+                        <label for='email' data-error="wrong" data-success="right">Email</label>
+                    </div>
                 </div>
-            </div>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input type="password" id="password" name="password" required="required"/>
+                        <label for='password' data-error="wrong" data-success="right">Mot de passe</label>
+                    </div>
 
-            <div class='row'>
-                <div class='input-field col s12'>
-                    <input type="password" id="passwordConnexion" name="passwordConnexion" required="required"/>
-                    <label for='passwordConnexion' data-error="wrong" data-success="right">Mot de passe</label>
+                    <br>
+                    <label>
+                        <a href="formInscription.php">Créer un compte</a>
+                    </label>
                 </div>
-                <br><br>
-                <label>
-                    <a href="formInscription.php">Créer un compte</a>
-                </label>
-            </div>
-            <div class='row'>
-                <button name='btn_login' class='col s12 btn btn-large waves-effect indigo'>
-                    <input type="submit" value="Se connecter"/>
-                </button>
-            </div>
-        </form>
+
+                <div class='row'>
+                    <button type='submit' name='btn_login' class=" waves-effect waves-light btn light">
+                        <input type="submit" value="Se connecter"/>
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
+    <br><br><br><br>
 </main>
-<br><br><br><br><br>
