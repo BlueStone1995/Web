@@ -53,6 +53,9 @@ $result = $mysqli->query($sql);
         echo "<p> Desolée ... </p>";
     } else {
         while ($ligne = $result->fetch_object()) {
+
+            $_SESSION["article"] = serialize($ligne);
+
             echo "<div class='card horizontal'>
         <div class='card-image'>
             <img class='image' alt='Image' src='$ligne->imageURL'>

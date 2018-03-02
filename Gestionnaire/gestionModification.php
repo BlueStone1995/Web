@@ -7,12 +7,18 @@ if (isset($_POST['image']) AND
     !empty($_POST['titre']) AND
     !empty($_POST['corps'])
 ) {
-
-    // Affiche page avec mes données
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
-    $sql = "SELECT idArticle, image, titre, corps FROM article ORDER BY titre";
+    $article = unserialize($_SESSION["article"]);
+    $image = $_POST["image"];
+    $titre = $_POST["titre"];
+    $corps = $_POST["corps"];
+
+    $sql = "UPDATE article 
+SET imageURL = '$image', titre = '$titre', corps = '$corps' 
+WHERE idArticle = '$article->idArticle'";
+
 
     // Execute requête
     $result = $mysqli->query($sql);
@@ -20,11 +26,8 @@ if (isset($_POST['image']) AND
     if (!$result) {
         echo "<p>Erreur...</p>";
     } else {
-        while ($ligne = $result->fetch_object()) { // Recupère ensemble des tuples de ma tables
-            if ($ligne->titre == $id) { // Récupère id et affiche données avec l'id
-
-            }
-        }
+        header('Location: http://localhost:8888/webMiage/index.php');
+        exit;
     }
 
 // Ferme connexion

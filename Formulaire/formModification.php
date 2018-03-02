@@ -12,7 +12,7 @@
 
 
 <?php include_once "../section/navDeconnexion.html"; ?>
-<?php include_once "formModification.html"; ?>
+<?php include_once "formModification_content.php"; ?>
 <?php include_once "../section/footer.html"; ?>
 <?php include_once "../js/javascript.html"; ?>
 
