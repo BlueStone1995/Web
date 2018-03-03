@@ -20,6 +20,18 @@ session_start();
 
 // Gestion session
 if (isset($_SESSION["email"]) AND
+    !empty($_SESSION["email"]) AND
+    isset($_SESSION["admin"]) AND
+    !empty($_SESSION["admin"])
+) {
+    $email = $_SESSION["email"];
+    $lastname = $_SESSION["lastname"];
+    $firstname = $_SESSION["firstname"];
+    $admin = $_SESSION["admin"];
+
+    require_once "listePublicationAdmin.php";
+
+} else if (isset($_SESSION["email"]) AND
     !empty($_SESSION["email"])
 ) {
     $email = $_SESSION["email"];

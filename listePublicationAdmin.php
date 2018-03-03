@@ -36,17 +36,22 @@ $result = $mysqli->query($sql);
 </div>
 
 <div class="section no-pad-bot container">
+
+
     <div class="card horizontal">
         <div class="card-image">
             <img class="image" src="pictures/img_fjords.jpg">
             <span class="card-title">Card Title</span>
         </div>
+
         <div class="card-stacked">
             <div class="card-content">
                 <p class="corps">I am a very simple card. I am good at containing small bits of information.</p>
             </div>
             <div class="card-action center">
                 <a href="Formulaire/formModification.php">Modifier l'article</a>
+                <a href="Gestionnaire/gestionSuppression.php" class="btn-floating waves-effect waves-light red">
+                    <i class="material-icons">delete</i></a>
             </div>
         </div>
     </div>
@@ -71,6 +76,8 @@ $result = $mysqli->query($sql);
             </div>
             <div class='card-action center'>
                 <a href='Formulaire/formModification.php'>Modifier l'article</a>
+                <a href=\"Gestionnaire/gestionSuppression.php\" class=\"btn-floating waves-effect waves-light red\">
+                    <i class=\"material-icons\">delete</i></a>
             </div>
         </div>
     </div>
@@ -89,6 +96,8 @@ $result = $mysqli->query($sql);
             </div>
             <div class="card-action center">
                 <a href="Formulaire/formModification.php">Modifier l'article</a>
+                <a href="Gestionnaire/gestionSuppression.php" class="btn-floating waves-effect waves-light red">
+                    <i class="material-icons">delete</i></a>
             </div>
         </div>
     </div>

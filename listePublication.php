@@ -22,7 +22,7 @@ $result = $mysqli->query($sql);
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="Formulaire/formInscription.php">S'inscrire</a></li>
                     <li><a href="Formulaire/formConnexion.php">Connexion</a></li>
-                    <li><a href="#">Admin</a></li>
+                    <li><a href="Formulaire/formConnexion.php">Admin</a></li>
                 </ul>
             </div>
         </div>
@@ -58,7 +58,7 @@ $result = $mysqli->query($sql);
 
             echo "<div class='card horizontal'>
         <div class='card-image'>
-            <img class='image' alt='Image' src='$ligne->imageURL'>
+            <img class='image' alt='Image' src='$ligne->image'>
             <span class='card-title'>$ligne->titre</span>
         </div>
         <div class='card-stacked'>

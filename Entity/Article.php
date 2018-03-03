@@ -8,13 +8,13 @@
 
 class Article
 {
-    private $imageURL;
+    private $image;
     private $titre;
     private $corps;
 
     function __construct($image, $titre, $corps)
     {
-        $this->imageURL = $image;
+        $this->image = $image;
         $this->titre = $titre;
         $this->corps = $corps;
     }
@@ -24,7 +24,7 @@ class Article
      */
     public function getImage()
     {
-        return $this->imageURL;
+        return $this->image;
     }
 
     /**
@@ -32,7 +32,7 @@ class Article
      */
     public function setImage($image)
     {
-        $this->imageURL = $image;
+        $this->image = $image;
     }
 
     /**

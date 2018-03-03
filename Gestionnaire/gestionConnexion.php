@@ -29,6 +29,7 @@ if (isset($_POST['email']) AND
         $_SESSION["lastname"] = $lastname;
         $_SESSION["firstname"] = $firstname;
         $_SESSION["password"] = $pwd;
+        $_SESSION["admin"] = $row['admin'];
 
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;

@@ -16,12 +16,14 @@ if (isset($_POST['image']) AND
     $corps = $_POST["corps"];
 
     $sql = "UPDATE article 
-SET imageURL = '$image', titre = '$titre', corps = '$corps' 
-WHERE idArticle = '$article->idArticle'";
+SET image = '".$image."', titre = '".$titre."', corps = '".$corps."' 
+WHERE idarticle = '".$article->idarticle."';";
 
 
     // Execute requête
     $result = $mysqli->query($sql);
+
+    $_SESSION["article"] = serialize($article);
 
     if (!$result) {
         echo "<p>Erreur...</p>";
@@ -32,9 +34,6 @@ WHERE idArticle = '$article->idArticle'";
 
 // Ferme connexion
     $mysqli->close();
-
-
-// Modifie BDD en fonction des données modifié
 
 } else {
     header('Location: http://localhost:8888/webMiage/Formulaire/formModification.php');

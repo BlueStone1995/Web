@@ -16,7 +16,7 @@ if (isset($_POST['image']) AND
     $corps = $_POST["corps"];
     $id = '\N';
 
-    $sql = "INSERT INTO article (idArticle, imageURL, titre, corps)
+    $sql = "INSERT INTO article (id_article, image, titre, corps)
 VALUES ('$id', '$image', '$titre', '$corps')";
 
     // Envoie dans bdd
