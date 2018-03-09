@@ -8,15 +8,18 @@ if (isset($_POST['image']) AND
     !empty($_POST['corps'])
 ) {
 
+    require_once "../Entity/Article.php";
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
+
+    $article = new Article($_POST["image"], $_POST["titre"], $_POST["corps"]);
 
     $image = $_POST["image"];
     $titre = $_POST["titre"];
     $corps = $_POST["corps"];
     $id = '\N';
 
-    $sql = "INSERT INTO article (id_article, image, titre, corps)
+    $sql = "INSERT INTO article (idarticle, image, titre, corps)
 VALUES ('$id', '$image', '$titre', '$corps')";
 
     // Envoie dans bdd

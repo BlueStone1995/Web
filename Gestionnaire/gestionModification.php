@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
 
 if (isset($_POST['image']) AND
     isset($_POST['titre']) AND
@@ -10,23 +10,22 @@ if (isset($_POST['image']) AND
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
-    $article = unserialize($_SESSION["article"]);
-    $image = $_POST["image"];
-    $titre = $_POST["titre"];
-    $corps = $_POST["corps"];
 
-    $sql = "UPDATE article 
-SET image = '".$image."', titre = '".$titre."', corps = '".$corps."' 
-WHERE idarticle = '".$article->idarticle."';";
+    $image = $_POST['image'];
+    $titre = $_POST['titre'];
+    $corps = $_POST['corps'];
+    $idarticle = $_SESSION['idarticle'];
 
+
+    $sql = "UPDATE article SET image = '$image', titre = '$titre', corps = '$corps' 
+WHERE idarticle = $idarticle;";
 
     // Execute requête
     $result = $mysqli->query($sql);
 
-    $_SESSION["article"] = serialize($article);
 
     if (!$result) {
-        echo "<p>Erreur...</p>";
+        echo "<p>Erreur</p>";
     } else {
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;

@@ -1,4 +1,12 @@
-<?php session_start(); ?>
+<?php session_start();
+
+// Connexion BDD
+require_once "../Gestionnaire/connexionBDD.php";
+$mysqli = connexionBDD();
+
+$sql = "SELECT * FROM article;";
+$result = $mysqli->query($sql);
+?>
 
 <br><br><br>
 <div class="formulaireModification center">
@@ -7,15 +15,21 @@
 
     <br><br><br>
     <?php
-    $article = unserialize($_SESSION["article"]);
+    $idarticle = $_GET['idarticle'];
+    $_SESSION['idarticle'] = $_GET['idarticle'];
 
-    echo "<form name='formModification' id='formModification' action=\"../Gestionnaire/gestionModification.php\" method='post'>
+    if (!$result) {
+        echo "<p> Desolée ... </p>";
+    } else {
+        while ($article = $result->fetch_object()) {
+            if ($article->idarticle == $idarticle) {
+                echo "<form name='formModification' id='formModification' action=\"../Gestionnaire/gestionModification.php\" method='post'>
         <div class='row container'>
             <div class='col s12'> 
                <div class='row'>
                     <div class='input-field col s6'>
                         <i class='material-icons prefix'>image</i>
-                        <input id='image' name='image' type='text' class='validate' value='$article->imageURL'>
+                        <input id='image' name='image' type='text' class='validate' value='$article->image'>
                         <label for='image'>URL de l'image</label>
                     </div>
 
@@ -42,8 +56,9 @@
             </bouton>
         </div>
     </form>";
-
-    $_SESSION["article"] = serialize($article);
+            }
+        }
+    }
     ?>
 </div>
 <br><br><br><br><br><br>

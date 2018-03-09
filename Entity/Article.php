@@ -8,15 +8,35 @@
 
 class Article
 {
+    private $idarticle;
     private $image;
     private $titre;
+
+
     private $corps;
 
-    function __construct($image, $titre, $corps)
+    function __construct($id, $image, $titre, $corps)
     {
+        $this->idarticle = $id;
         $this->image = $image;
         $this->titre = $titre;
         $this->corps = $corps;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdarticle()
+    {
+        return $this->idarticle;
+    }
+
+    /**
+     * @param mixed $idarticle
+     */
+    public function setIdarticle($idarticle)
+    {
+        $this->idarticle = $idarticle;
     }
 
     /**

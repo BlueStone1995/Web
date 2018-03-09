@@ -56,10 +56,8 @@ $result = $mysqli->query($sql);
     if (!$result) {
         echo "<p> Desolée ... </p>";
     } else {
+
         while ($ligne = $result->fetch_object()) {
-
-            $_SESSION["article"] = serialize($ligne); // Article mis en session pour modification
-
             echo "<div class='card horizontal'>
         <div class='card-image'>
             <img class='image' alt='Image' src='$ligne->image'>
@@ -70,8 +68,9 @@ $result = $mysqli->query($sql);
                 <p class='corps'>$ligne->corps</p>
             </div>
             <div class='card-action center'>
-                <a href='Formulaire/formModification.php'>Modifier l'article</a>
+                <a href='Formulaire/formModification.php?idarticle=$ligne->idarticle'>Modifier l'article</a>
             </div>
+            
         </div>
     </div>
     <br><br>";
