@@ -12,8 +12,6 @@ if (isset($_POST['image']) AND
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
-    //$article = new Article($_POST["image"], $_POST["titre"], $_POST["corps"]);
-
     $image = $_POST["image"];
     $titre = $_POST["titre"];
     $corps = $_POST["corps"];
@@ -24,6 +22,17 @@ VALUES ('$id', '$image', '$titre', '$corps')";
 
     // Envoie dans bdd
     $result = $mysqli->query($sql);
+
+    // Récupère id article :
+    $sqlid = "SELECT idarticle FROM article WHERE image = '$image', titre = '$titre', corps = '$corps'";
+    $resultid = $mysqli->query($sqlid);
+
+    if (!$resultid) {
+        echo "<p>Erreur...</p>";
+    } else {
+        // Crée objet article
+        $article = new Article($sqlid, $_POST["image"], $_POST["titre"], $_POST["corps"]);
+    }
 
     if (!$result) {
         echo "<p>Erreur...</p>";

@@ -11,8 +11,6 @@ class Article
     private $idarticle;
     private $image;
     private $titre;
-
-
     private $corps;
 
     function __construct($id, $image, $titre, $corps)

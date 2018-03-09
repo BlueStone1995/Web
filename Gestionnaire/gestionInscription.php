@@ -14,7 +14,7 @@ if (isset($_POST['lastname']) AND
     !empty($_POST['confirm_password']) AND
     ($_POST['confirm_password'] == $_POST['new_password'])
 ) {
-
+    require_once "../Entity/Utilisateur.php";
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
@@ -27,11 +27,20 @@ if (isset($_POST['lastname']) AND
     $sql = "INSERT INTO utilisateur (idUtilisateur, lastname, firstname, email, password)
 VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de hash
 
-    require_once "../Entity/Utilisateur.php";
-    $user = new Utilisateur($prenom, $nom, $email, $mdp);
-
     // Envoie dans bdd
     $result = $mysqli->query($sql);
+
+    // Récupère id utilisateur :
+    $sqlid = "SELECT idUtilisateur FROM utilisateur WHERE lastname = '$nom', firstname = '$prenom', email = '$email', password= '$mdp'";
+    $resultid = $mysqli->query($sqlid);
+
+    if (!$resultid) {
+        echo "<p>Erreur...</p>";
+    } else {
+        // Créer nouveau objet Utilisateur
+        $user = new Utilisateur($resultid, $prenom, $nom, $email, $mdp);
+    }
+
 
     if (!$result) {
         echo "<p>Erreur...</p>";

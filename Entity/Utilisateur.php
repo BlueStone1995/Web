@@ -9,17 +9,35 @@
 class Utilisateur
 {
 
+    private $idUtilisateur;
     private $firstname;
     private $lastname;
     private $email;
     private $password;
 
-    function __construct($firstname, $lastname, $email, $password)
+    function __construct($id, $firstname, $lastname, $email, $password)
     {
+        $this->idUtilisateur;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
         $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUtilisateur()
+    {
+        return $this->idUtilisateur;
+    }
+
+    /**
+     * @param mixed $idUtilisateur
+     */
+    public function setIdUtilisateur($idUtilisateur)
+    {
+        $this->idUtilisateur = $idUtilisateur;
     }
 
     /**
