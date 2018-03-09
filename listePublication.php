@@ -32,22 +32,6 @@ $result = $mysqli->query($sql);
 
 <div class="section no-pad-bot container">
 
-    <div class="card horizontal">
-        <div class="card-image">
-            <img class="image" src="pictures/img_fjords.jpg">
-            <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <p class="corps">I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-            <div class="card-action center">
-                <a href="Formulaire/formConnexion.php">Modifier l'article</a>
-            </div>
-        </div>
-    </div>
-    <br><br>
-
     <?php
     if (!$result) {
         echo "<p> Desolée ... </p>";
@@ -74,22 +58,6 @@ $result = $mysqli->query($sql);
         }
     }
     ?>
-
-    <div class="card horizontal">
-        <div class="card-image">
-            <img class="image" src="pictures/img_fjords.jpg">
-            <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <p class="corps">I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-            <div class="card-action center">
-                <a href="Formulaire/formConnexion.php">Modifier l'article</a>
-            </div>
-        </div>
-    </div>
-    <br><br>
 
 </div>
 

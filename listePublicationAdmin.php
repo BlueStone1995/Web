@@ -37,34 +37,12 @@ $result = $mysqli->query($sql);
 
 <div class="section no-pad-bot container">
 
-
-    <div class="card horizontal">
-        <div class="card-image">
-            <img class="image" src="pictures/img_fjords.jpg">
-            <span class="card-title">Card Title</span>
-        </div>
-
-        <div class="card-stacked">
-            <div class="card-content">
-                <p class="corps">I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-            <div class="card-action center">
-                <a href="Formulaire/formModification.php">Modifier l'article</a>
-                <a href="Gestionnaire/gestionSuppression.php" class="btn-floating waves-effect waves-light red">
-                    <i class="material-icons">delete</i></a>
-            </div>
-        </div>
-    </div>
-    <br><br>
-
     <?php
     if (!$result) {
         echo "<p> Desolée ... </p>";
     } else {
+
         while ($ligne = $result->fetch_object()) {
-
-            $_SESSION["article"] = serialize($ligne); // Article mis en session pour modification
-
             echo "<div class='card horizontal'>
         <div class='card-image'>
             <img class='image' alt='Image' src='$ligne->image'>
@@ -75,9 +53,9 @@ $result = $mysqli->query($sql);
                 <p class='corps'>$ligne->corps</p>
             </div>
             <div class='card-action center'>
-                <a href='Formulaire/formModification.php'>Modifier l'article</a>
-                <a href=\"Gestionnaire/gestionSuppression.php\" class=\"btn-floating waves-effect waves-light red\">
-                    <i class=\"material-icons\">delete</i></a>
+                <a href='Formulaire/formModification.php?idarticle=$ligne->idarticle'>Modifier l'article</a>
+               <a href='Gestionnaire/gestionSuppression.php?idarticle=$ligne->idarticle' class='btn-floating waves-effect waves-light red'>
+                    <i class='material-icons'>delete</i></a>
             </div>
         </div>
     </div>
@@ -85,23 +63,6 @@ $result = $mysqli->query($sql);
         }
     }
     ?>
-    <div class="card horizontal">
-        <div class="card-image">
-            <img class="image" src="pictures/img_fjords.jpg">
-            <span class="card-title">Card Title</span>
-        </div>
-        <div class="card-stacked">
-            <div class="card-content">
-                <p class="corps">I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-            <div class="card-action center">
-                <a href="Formulaire/formModification.php">Modifier l'article</a>
-                <a href="Gestionnaire/gestionSuppression.php" class="btn-floating waves-effect waves-light red">
-                    <i class="material-icons">delete</i></a>
-            </div>
-        </div>
-    </div>
-    <br><br>
 
 </div>
 <br><br><br>

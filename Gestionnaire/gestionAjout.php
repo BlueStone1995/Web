@@ -12,7 +12,7 @@ if (isset($_POST['image']) AND
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
-    $article = new Article($_POST["image"], $_POST["titre"], $_POST["corps"]);
+    //$article = new Article($_POST["image"], $_POST["titre"], $_POST["corps"]);
 
     $image = $_POST["image"];
     $titre = $_POST["titre"];
@@ -28,14 +28,12 @@ VALUES ('$id', '$image', '$titre', '$corps')";
     if (!$result) {
         echo "<p>Erreur...</p>";
     } else {
-
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;
     }
 
     // Ferme connexion
     $mysqli->close();
-
 
 } else {
     header('Location: http://localhost:8888/webMiage/Formulaire/formAjout.php');
