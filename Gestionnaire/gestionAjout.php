@@ -20,25 +20,17 @@ if (isset($_POST['image']) AND
     $sql = "INSERT INTO article (idarticle, image, titre, corps)
 VALUES ('$id', '$image', '$titre', '$corps')";
 
-    // Envoie dans bdd
-    $result = $mysqli->query($sql);
 
-    // Récupère id article :
-    $sqlid = "SELECT idarticle FROM article WHERE image = '$image', titre = '$titre', corps = '$corps'";
-    $resultid = $mysqli->query($sqlid);
+    if ($mysqli->query($sql) === TRUE) { // Envoie dans bdd
+        $idarticle = $mysqli->insert_id;     // Récupère id article
+        $article = new Article($idarticle, $image, $titre, $corps); // Créer nouveau objet Article
 
-    if (!$resultid) {
-        echo "<p>Erreur...</p>";
-    } else {
-        // Crée objet article
-        $article = new Article($sqlid, $_POST["image"], $_POST["titre"], $_POST["corps"]);
-    }
+        $_SESSION["article"] = serialize($article);
 
-    if (!$result) {
-        echo "<p>Erreur...</p>";
-    } else {
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;
+    } else {
+        echo "<p>Erreur...</p>";
     }
 
     // Ferme connexion

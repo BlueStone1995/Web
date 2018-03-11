@@ -69,6 +69,6 @@ $result = $mysqli->query($sql);
 
 <footer class="page-footer orange">
     <div class="center-align">
-        Ce site a été créé par <a class="orange-text text-lighten-3" href="index.php">Pierre MB</a>
+        Ce site a été créé par <a class="orange-text text-lighten-3">Pierre MB</a>
     </div>
 </footer>

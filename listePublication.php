@@ -24,7 +24,8 @@ $result = $mysqli->query($sql);
                     <li><a href="Formulaire/formConnexion.php">Connexion</a></li>
                     <li><a href="Formulaire/formConnexion.php">Admin</a></li>
                 </ul>
-            </div>
+            </div>clear
+
         </div>
     </div>
 </nav>
@@ -37,8 +38,6 @@ $result = $mysqli->query($sql);
         echo "<p> Desolée ... </p>";
     } else {
         while ($ligne = $result->fetch_object()) {
-
-            $_SESSION["article"] = serialize($ligne);
 
             echo "<div class='card horizontal'>
         <div class='card-image'>
@@ -65,6 +64,6 @@ $result = $mysqli->query($sql);
 
 <footer class="page-footer orange">
     <div class="center-align">
-        Ce site a été créé par <a class="orange-text text-lighten-3" href="index.php">Pierre MB</a>
+        Ce site a été créé par <a class="orange-text text-lighten-3">Pierre MB</a>
     </div>
 </footer>

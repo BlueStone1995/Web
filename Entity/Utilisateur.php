@@ -9,15 +9,16 @@
 class Utilisateur
 {
 
-    private $idUtilisateur;
+    private $idutilisateur;
     private $firstname;
     private $lastname;
     private $email;
     private $password;
+    private $admin;
 
-    function __construct($id, $firstname, $lastname, $email, $password)
+    function __construct($id, $lastname, $firstname, $email, $password)
     {
-        $this->idUtilisateur;
+        $this->idutilisateur;
         $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->email = $email;
@@ -27,17 +28,17 @@ class Utilisateur
     /**
      * @return mixed
      */
-    public function getIdUtilisateur()
+    public function getIdutilisateur()
     {
-        return $this->idUtilisateur;
+        return $this->idutilisateur;
     }
 
     /**
-     * @param mixed $idUtilisateur
+     * @param mixed $idutilisateur
      */
-    public function setIdUtilisateur($idUtilisateur)
+    public function setIdutilisateur($idutilisateur)
     {
-        $this->idUtilisateur = $idUtilisateur;
+        $this->idutilisateur = $idutilisateur;
     }
 
     /**
@@ -102,5 +103,21 @@ class Utilisateur
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdmin()
+    {
+        return $this->admin;
+    }
+
+    /**
+     * @param mixed $admin
+     */
+    public function setAdmin($admin)
+    {
+        $this->admin = $admin;
     }
 }

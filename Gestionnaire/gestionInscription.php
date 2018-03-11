@@ -14,7 +14,7 @@ if (isset($_POST['lastname']) AND
     !empty($_POST['confirm_password']) AND
     ($_POST['confirm_password'] == $_POST['new_password'])
 ) {
-    require_once "../Entity/Utilisateur.php";
+    require_once "../Entity/Utilisateur.php"; // Récupere entité Utilisateur
     require_once "connexionBDD.php"; // Récupere fonction connexion a bdd
     $mysqli = connexionBDD();
 
@@ -24,40 +24,29 @@ if (isset($_POST['lastname']) AND
     $mdp = $_POST["new_password"];
     $id = '\N';
 
-    $sql = "INSERT INTO utilisateur (idUtilisateur, lastname, firstname, email, password)
+    $sql = "INSERT INTO utilisateur (idutilisateur, lastname, firstname, email, password)
 VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de hash
 
-    // Envoie dans bdd
-    $result = $mysqli->query($sql);
+    if ($mysqli->query($sql) === TRUE) { // Envoie dans bdd
+        $idutilisateur = $mysqli->insert_id;     // Récupère id utilisateur
+        $user = new Utilisateur($idutilisateur, $nom, $prenom, $email, $mdp); // Créer nouveau objet Utilisateur
 
-    // Récupère id utilisateur :
-    $sqlid = "SELECT idUtilisateur FROM utilisateur WHERE lastname = '$nom', firstname = '$prenom', email = '$email', password= '$mdp'";
-    $resultid = $mysqli->query($sqlid);
-
-    if (!$resultid) {
-        echo "<p>Erreur...</p>";
-    } else {
-        // Créer nouveau objet Utilisateur
-        $user = new Utilisateur($resultid, $prenom, $nom, $email, $mdp);
-    }
-
-
-    if (!$result) {
-        echo "<p>Erreur...</p>";
-    } else {
-        $_SESSION["email"] = $email;
-        $_SESSION["lastname"] = $nom;
-        $_SESSION["firstname"] = $prenom;
+        $_SESSION["idutilisateur"] = $user->getIdutilisateur();
+        $_SESSION["lastname"] = $user->getLastname();
+        $_SESSION["firstname"] = $user->getFirstname();
+        $_SESSION["email"] = $user->getEmail();
+        $_SESSION['password'] = $user->getPassword();
 
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;
+    } else {
+        echo "<p>Erreur utilisateur...</p>";
     }
 
     // Ferme connexion
     $mysqli->close();
 
 } else {
-    echo "Mauvais remplissage...";
     header('Location: http://localhost:8888/webMiage/Formulaire/formInscription.php');
     exit;
 }

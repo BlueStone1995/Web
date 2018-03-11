@@ -34,9 +34,9 @@ if (isset($_POST['email']) AND
         header('Location: http://localhost:8888/webMiage/index.php');
         exit;
     } else {
-        echo "Error: wrong enters";
+        echo "<p>Erreur mauvaise entrée</p>";
     }
-}else{
+} else {
     header('Location: http://localhost:8888/webMiage/Formulaire/formConnexion.php');
     exit;
 }
