@@ -12,7 +12,6 @@ if (isset($_POST['email']) AND
     $email = $_POST['email'];
     $pwd = $_POST['password'];
 
-
     // Connexion a bdd
     require_once "connexionBDD.php";
     $mysqli = connexionBDD();
@@ -24,7 +23,7 @@ if (isset($_POST['email']) AND
     $lastname = $row['lastname'];
     $firstname = $row['firstname'];
 
-    if ($row['password'] == $pwd && $row['email'] == $email) {
+    if (password_verify($pwd, $row['password']) && $row['email'] == $email) {
         $_SESSION["email"] = $email;
         $_SESSION["lastname"] = $lastname;
         $_SESSION["firstname"] = $firstname;

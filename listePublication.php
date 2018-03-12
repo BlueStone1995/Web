@@ -24,7 +24,7 @@ $result = $mysqli->query($sql);
                     <li><a href="Formulaire/formConnexion.php">Connexion</a></li>
                     <li><a href="Formulaire/formConnexion.php">Admin</a></li>
                 </ul>
-            </div>clear
+            </div>
 
         </div>
     </div>

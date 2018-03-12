@@ -24,12 +24,21 @@ if (isset($_POST['lastname']) AND
     $mdp = $_POST["new_password"];
     $id = '\N';
 
+    // Grain de sel pour mot de passe
+    $option = [
+        'sel' => uniqid(mt_rand(), true),
+        'cost' => 12 // Cout par défaut
+    ];
+
+    // Hashage du mot de passe
+    $mdpHash = password_hash($mdp, PASSWORD_BCRYPT, $option);
+
     $sql = "INSERT INTO utilisateur (idutilisateur, lastname, firstname, email, password)
-VALUES ('$id', '$nom', '$prenom', '$email', '$mdp')"; // Ajouter fonction de hash
+VALUES ('$id', '$nom', '$prenom', '$email', '$mdpHash')"; // Ajouter fonction de hash
 
     if ($mysqli->query($sql) === TRUE) { // Envoie dans bdd
         $idutilisateur = $mysqli->insert_id;     // Récupère id utilisateur
-        $user = new Utilisateur($idutilisateur, $nom, $prenom, $email, $mdp); // Créer nouveau objet Utilisateur
+        $user = new Utilisateur($idutilisateur, $nom, $prenom, $email, $mdpHash); // Créer nouveau objet Utilisateur
 
         $_SESSION["idutilisateur"] = $user->getIdutilisateur();
         $_SESSION["lastname"] = $user->getLastname();
